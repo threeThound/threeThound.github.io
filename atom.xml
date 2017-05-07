@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-07T09:16:52.355Z</updated>
+  <updated>2017-05-07T14:33:35.114Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="http://yoursite.com/2017/03/24/hello-world/"/>
     <id>http://yoursite.com/2017/03/24/hello-world/</id>
     <published>2017-03-24T03:47:41.698Z</published>
-    <updated>2017-05-07T09:16:52.355Z</updated>
+    <updated>2017-05-07T14:33:35.114Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<a id="more"></a>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
@@ -35,7 +36,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -47,11 +50,11 @@
   </entry>
   
   <entry>
-    <title>Pyython中的进程、线程和协程</title>
-    <link href="http://yoursite.com/2014/05/08/Pyython%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/"/>
-    <id>http://yoursite.com/2014/05/08/Pyython中的进程、线程和协程/</id>
+    <title>Python中的进程、线程和协程</title>
+    <link href="http://yoursite.com/2014/05/08/Python%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/"/>
+    <id>http://yoursite.com/2014/05/08/Python中的进程、线程和协程/</id>
     <published>2014-05-08T11:46:14.000Z</published>
-    <updated>2017-05-07T10:23:27.826Z</updated>
+    <updated>2017-05-07T14:08:38.703Z</updated>
     
     <summary type="html">
     
@@ -66,12 +69,28 @@
   
   <entry>
     <title>python  开发环境搭建</title>
-    <link href="http://yoursite.com/2014/05/07/python-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2014/05/07/python-开发环境搭建/</id>
+    <link href="http://yoursite.com/2014/05/07/python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2014/05/07/python开发环境搭建/</id>
     <published>2014-05-07T09:47:09.000Z</published>
-    <updated>2017-05-07T10:22:44.167Z</updated>
+    <updated>2017-05-07T14:33:03.804Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Windows下安装Python和配置环境"><a href="#Windows下安装Python和配置环境" class="headerlink" title="Windows下安装Python和配置环境"></a>Windows下安装Python和配置环境</h2><h3 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h3><p>首先要去<a href="https://www.python.org/" target="_blank" rel="external">Python的官网</a>下载环境。鼠标移动到Downloads的tab上，在这里可以下载。<br><img src="http://opkyi3su9.bkt.clouddn.com/image/Python-dw.jpg" alt="Python下载页面"><br>Python的环境还是很人性化的，没有那么多啰里啰嗦的配置什么的，下载完之后一路next就可以，直到完成。</p>
+<p>安装时候需要<em>注意</em>的一点是，需要将add [对应版本号] to PATH:<br><img src="http://opkyi3su9.bkt.clouddn.com/images/python3.5.jpg" alt="python3安装"></p>
+<a id="more"></a>
+<h3 id="Python-IDE"><a href="#Python-IDE" class="headerlink" title="Python IDE"></a><strong>Python IDE</strong></h3><p>在这里为大家推荐<a href="http://www.jetbrains.com/pycharm/" target="_blank" rel="external">pycharm</a>,<br>下载和安装都按照提示操作即可。</p>
+<h4 id="注册码"><a href="#注册码" class="headerlink" title="注册码"></a><strong>注册码</strong></h4><p>这里推荐一个注册码<a href="http://idea.lanyus.com/" target="_blank" rel="external">pycharm激活码</a>,（感谢作者）。激活过程如下<br>1.进入页面<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm%E6%BF%80%E6%B4%BB%E7%A0%81%E8%8E%B7%E5%8F%96.jpg" alt="激活码获取1"><br>2.获得注册码，复制注册码<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm%E6%BF%80%E6%B4%BB%E7%A0%81%E8%8E%B7%E5%8F%96%20%282%29.jpg" alt="激活码获取2"><br>3.进入pycharm，找到help下的Register：<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm%E6%BF%80%E6%B4%BB%E6%8C%89%E9%92%AE.jpg" alt="激活1"></p>
+<p>4.选择active-code,粘贴注册码,点击OK完成。恭喜你，可以敲代码了！！<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm%E6%BF%80%E6%B4%BB%E7%A0%81%E7%B2%98%E8%B4%B4.jpg" alt="此处输入图片的描述"></p>
+<h3 id="第一个Python程序"><a href="#第一个Python程序" class="headerlink" title="第一个Python程序"></a>第一个Python程序</h3><p>打开pycharm,新建工程:New Project<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm-nenproject.jpg" alt="新建工程1"><br>选择路径和解释器:<br><img src="http://opkyi3su9.bkt.clouddn.com/images/pycharm-newproject-2.jpg" alt="新建工程2"><br>现在，让我们来写一个最简单的Python程序，新建文件，点击New,选择Python file:<br><img src="http://opkyi3su9.bkt.clouddn.com/images/newfile1.jpg" alt="新建文件1"></p>
+<p>为文件命名:</p>
+<p><img src="http://opkyi3su9.bkt.clouddn.com/images/newfile2.jpg" alt="新建文件2"></p>
+<p>下面是代码块和执行情况，在<strong>python2</strong>：中<br><img src="http://opkyi3su9.bkt.clouddn.com/images/py2hello.jpg" alt="py2-hello"></p>
+<p>在<strong>python3</strong>中：<br><img src="http://opkyi3su9.bkt.clouddn.com/images/py3.jpg" alt="py3-hello"></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;Windows下安装Python和配置环境&quot;&gt;&lt;a href=&quot;#Windows下安装Python和配置环境&quot; class=&quot;headerlink&quot; title=&quot;Windows下安装Python和配置环境&quot;&gt;&lt;/a&gt;Windows下安装Python和配置环境&lt;/h2&gt;&lt;h3 id=&quot;安装Python&quot;&gt;&lt;a href=&quot;#安装Python&quot; class=&quot;headerlink&quot; title=&quot;安装Python&quot;&gt;&lt;/a&gt;安装Python&lt;/h3&gt;&lt;p&gt;首先要去&lt;a href=&quot;https://www.python.org/&quot;&gt;Python的官网&lt;/a&gt;下载环境。鼠标移动到Downloads的tab上，在这里可以下载。&lt;br&gt;&lt;img src=&quot;http://opkyi3su9.bkt.clouddn.com/image/Python-dw.jpg&quot; alt=&quot;Python下载页面&quot;&gt;&lt;br&gt;Python的环境还是很人性化的，没有那么多啰里啰嗦的配置什么的，下载完之后一路next就可以，直到完成。&lt;/p&gt;
+&lt;p&gt;安装时候需要&lt;em&gt;注意&lt;/em&gt;的一点是，需要将add [对应版本号] to PATH:&lt;br&gt;&lt;img src=&quot;http://opkyi3su9.bkt.clouddn.com/images/python3.5.jpg&quot; alt=&quot;python3安装&quot;&gt;&lt;/p&gt;
     
     </summary>
     

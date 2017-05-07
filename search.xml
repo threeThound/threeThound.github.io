@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Welcome to Hexo]]></title>
+    <url>%2F2017%2F03%2F24%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>introduce</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python中的进程、线程和协程]]></title>
+    <url>%2F2014%2F05%2F08%2FPython%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>进程与线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python 开发环境搭建]]></title>
+    <url>%2F2014%2F05%2F07%2Fpython%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[Windows下安装Python和配置环境安装Python首先要去Python的官网下载环境。鼠标移动到Downloads的tab上，在这里可以下载。Python的环境还是很人性化的，没有那么多啰里啰嗦的配置什么的，下载完之后一路next就可以，直到完成。 安装时候需要注意的一点是，需要将add [对应版本号] to PATH: Python IDE在这里为大家推荐pycharm,下载和安装都按照提示操作即可。 注册码这里推荐一个注册码pycharm激活码,（感谢作者）。激活过程如下1.进入页面2.获得注册码，复制注册码3.进入pycharm，找到help下的Register： 4.选择active-code,粘贴注册码,点击OK完成。恭喜你，可以敲代码了！！ 第一个Python程序打开pycharm,新建工程:New Project选择路径和解释器:现在，让我们来写一个最简单的Python程序，新建文件，点击New,选择Python file: 为文件命名: 下面是代码块和执行情况，在python2：中 在python3中：]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>开发环境</tag>
+      </tags>
+  </entry>
+</search>
