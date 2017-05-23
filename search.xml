@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Welcome to Hexo]]></title>
-    <url>%2F2017%2F03%2F24%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[Redis 数据类型及操作]]></title>
+    <url>%2F2017%2F05%2F16%2FRedis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[Redis 基本数据类型 Resis 是 key-Value 的数据结构，每条数据都是一个 键值对 不管是 键名 还是值 都是字符串，即Redis存储的一切数据，基于的都是字符串。 Redis 支持5种数据类型：|数据类型 |含义 || ——- | ——|| string | 字符串 || hash | 哈希 || list | 列表 || set | 集合 || zset | 有序集合 | 基本使用String 字符串string 是redis最基本的类型，一个key对应一个value。string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象。string类型是Redis的最基本的数据类型，一个键最大能存储512MB。1234127.0.0.1:6379&gt; set name &quot;itcast&quot;OK127.0.0.1:6379&gt; get name&quot;itcast&quot; 在上面的例子中，set和 get 是Redis string命令， name 和 itcast是存储在Redis的键和字符串值。 Hash 哈希Redis hash 是一个键值对集合。Redis hash 是一个string类型的 fileld 和 value的映射表，hash特别适用于存储对象。12345678910111213127.0.0.1:6379&gt; hset myhash age &quot;18&quot;(integer) 1127.0.0.1:6379&gt; hget myhash age&quot;18&quot;127.0.0.1:6379&gt; hmset my_hash username &quot;tom&quot; age 18 gender &quot;男&quot;OK127.0.0.1:6379&gt; hgetall my_hashusernametomage18gender男 在上面的例子中，哈希数据表用于存储包含用户基本信息的用户对象。这里 hset, hget, hgetall 是Redis HASHES命令，同时 myhash 、my_hash都是键。 List 列表Redis 列表是简单的字符串列表， 按照插入顺序排序,可以选择添加一个元素的头部（左边）或者尾部（右边）。12345678# 先插入的数据在尾部（右边）lpush key value [value ...]# 先插入的数据在头部（列表左边）rpush key value [value ...]# 查看列表数据，并指定区间lrange key start stop mylist1 of lpush (从头部插入数据） 12345678910127.0.0.1:6379&gt; lpush mylist1 &quot;mysql&quot;1127.0.0.1:6379&gt; lpush mylist1 &quot;redis&quot;2127.0.0.1:6379&gt; lpush mylist1 &quot;Mongodb&quot;3127.0.0.1:6379&gt; lrange mylist1 0 -1Mongodbredismysql mylist2 of rpush (从尾部插入数据) 12345678910127.0.0.1:6379&gt; rpush mylist2 &quot;mysql&quot;1127.0.0.1:6379&gt; rpush mylist2 &quot;moongodb&quot;2127.0.0.1:6379&gt; rpush mylist2 &quot;redis&quot;3127.0.0.1:6379&gt; lrange mylist2 0 -1mysqlmoongodbredis 列表最多可存储2^32-1个元素（4294967295,每个列表可存储40多亿） Set 集合Redis Set是 string类型的无序集合。集合是通过哈希表实现的，所以添加、删除、查找的复杂度都是O(1)。在Redis可以添加，删除，和测试成员存在的事件复杂度是O(1)。 123456789101112127.0.0.1:6379&gt; sadd myset1 &quot;mysql&quot;1127.0.0.1:6379&gt; sadd myset1 &quot;redis&quot;1127.0.0.1:6379&gt; sadd myset1 &quot;mogodb&quot;1127.0.0.1:6379&gt; sadd myset1 &quot;redis&quot;0127.0.0.1:6379&gt; smembers myset1mogodbmysqlredis 注：在上面的例子中redis被添加两次，但由于它只是集合，具有唯一特性。集合中最大的成员数为2^32-1(4294967295,每个集合可存储40多亿个成员)。 zset(sorted set: 有序集合)Redis zset 和set一样也是string类型元素的集合，且不允许重复的成员。不同的是每个元素都会关联一个double类型的分数（权重)。redis正是通过分数为集合中的成员（权重）进行从小到大排序的。zset的成员是唯一的，但分数（score）却可以重复。1234567891011121314127.0.0.1:6379&gt; zadd mysortset 0 &quot;mysql&quot;1127.0.0.1:6379&gt; zadd mysortset 0 &quot;redis&quot;1127.0.0.1:6379&gt; zadd mysortset 1 &quot;mysql&quot;0127.0.0.1:6379&gt; zadd mysortset 2 &quot;oracle&quot;1127.0.0.1:6379&gt; zadd mysortset 3 &quot;mongdb&quot;1127.0.0.1:6379&gt; zrangebyscore mysortset 0 2redismysqloracle 键操作keys * : 查看所有键123127.0.0.1:6379&gt; keys *myset1mysortset 使用通配符 *： 查看名称中包含有m的键123127.0.0.1:6379&gt; keys &quot;*m*&quot;myset1mysortset exists 查看验证键是否存在 键存在：(integer)1 键不存在： (integer)01234127.0.0.1:6379&gt; exists name0127.0.0.1:6379&gt; exists myset11 type 查看键对应的值的数据类型 键存在： 数据类型名 键不存在： none12127.0.0.1:6379&gt; type myset1set del 删除键值： 删除这个key及对应的value 键存在：(integer)1 键不存在： (integer)01234127.0.0.1:6379&gt; del name0127.0.0.1:6379&gt; del myset11]]></content>
       <categories>
-        <category>introduce</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python中的进程、线程和协程]]></title>
-    <url>%2F2014%2F05%2F08%2FPython%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[CentOS 7.0 关闭默认防火墙启用iptables防火墙]]></title>
+    <url>%2F2016%2F05%2F14%2FCentOS-%E4%B8%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[说明本文介绍在CentOS 7.0中关闭默认防火墙，开启iptables防火墙步骤 操作系统环境：CentOS Linux release 7.0.1611(Core) 64位CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙步骤。 1.关闭默认防火墙123systemctl stop firewalld.service #停止firewallsystemctl disable firewalld.service #禁止firewall开机启动firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running） 2.iptables防火墙（这里iptables已经安装，下面进行配置）12345678910111213141516171819202122sudo vi /etc/sysconfig/iptables #用vi编辑iptables防火墙配置文件# sample configuration for iptables service# you can edit this manually or use system-config-firewall# please do not ask us to add additional ports/services to this default configuration*filter:INPUT ACCEPT [0:0]:FORWARD ACCEPT [0:0]:OUTPUT ACCEPT [0:0]-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT-A INPUT -p icmp -j ACCEPT-A INPUT -i lo -j ACCEPT# 添加开放的端口号 -A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT-A INPUT -p tcp -m state --state NEW -m tcp --dport 21 -j ACCEPT# mysql图形界面navicat需要的端口，在windows上连接Linux下的mysql时需要-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT-A INPUT -m state --state NEW -m udp -p udp --dport 3306 -j ACCEPT-A INPUT -j REJECT --reject-with icmp-host-prohibited-A FORWARD -j REJECT --reject-with icmp-host-prohibitedCOMMIT 备注：这里使用22和21端口为例。12systemctl restart iptables.service #最后重启防火墙使配置生效systemctl enable iptables.service #设置防火墙开机启动]]></content>
       <categories>
-        <category>python</category>
+        <category>Linux相关</category>
       </categories>
       <tags>
-        <tag>进程与线程</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -31,6 +31,17 @@
       </categories>
       <tags>
         <tag>开发环境</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Welcome to Hexo]]></title>
+    <url>%2F2014%2F01%2F14%2Fhello-hexo%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>introduce</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
