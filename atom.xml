@@ -116,6 +116,39 @@
   </entry>
   
   <entry>
+    <title>windows系统cmd环境导入sql文件报错问题</title>
+    <link href="http://yoursite.com/2015/05/23/window%E7%B3%BB%E7%BB%9Fcmd%E7%8E%AF%E5%A2%83%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2015/05/23/window系统cmd环境导入sql文件报错问题/</id>
+    <published>2015-05-23T14:33:25.000Z</published>
+    <updated>2017-05-23T15:00:03.788Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本篇介绍在windows下的cmd环境执行source *.sql 文件时的报错问题</p>
+<h3 id="1-问题现象"><a href="#1-问题现象" class="headerlink" title="1.问题现象"></a>1.问题现象</h3><p><img src="/2015/05/23/window系统cmd环境导入sql文件报错问题/error.jpg" alt="error"></p>
+<a id="more"></a>
+<h3 id="2-问题原因"><a href="#2-问题原因" class="headerlink" title="2.问题原因"></a>2.问题原因</h3><p>我们用两个图片来说明。在登录mysql客户端后输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show variables like &quot;character%&quot;</div></pre></td></tr></table></figure></p>
+<p>显示如下：<br><img src="/2015/05/23/window系统cmd环境导入sql文件报错问题/windows1.jpg" alt="encode1"><br>当我们输入<code>set names utf8;</code> 之后，执行source *.sql文件不会报错。此时的字符编码情况如下图：<br><img src="/2015/05/23/window系统cmd环境导入sql文件报错问题/windows2.jpg" alt="encode2"><br>观察上下两幅图可知，是client、connection、results这三个系统变量的字符编码导致了乱码报错问题。<br>看看这3个变量的作用：</p>
+<p>信息输入路径：client→connection→server；<br>信息输出路径：server→connection→results。</p>
+<p>换句话说，每个路径要经过3次改变字符集编码。以出现乱码的输出为例，server里utf8的数据，传入connection转为<code>gbk</code>，传入results转为gbk，utf-8页面又把results转过来。如果两种字符集不兼容，比如<code>gbk</code>和<code>utf8</code>，转化过程就为不可逆的，破坏性的。所以就转不回来了。</p>
+<p>但这里要声明一点，“SET NAMES UTF8”作用只是临时的，MySQL重启后就恢复默认了。</p>
+<h3 id="3-在ubuntu中的编码与windows中不同，如下图："><a href="#3-在ubuntu中的编码与windows中不同，如下图：" class="headerlink" title="3.在ubuntu中的编码与windows中不同，如下图："></a>3.在ubuntu中的编码与windows中不同，如下图：</h3><p><img src="/2015/05/23/window系统cmd环境导入sql文件报错问题/ubuntu.jpg" alt="ubuntu.encode"><br>因为在这里的client,connection,results 都是utf-8编码，所以在执行source *.sql 文件时不会报错。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>在Windows中设置了<code>set names utf8;</code> 之后查询语句会乱码，此时不应设置，中文显示需要<code>gbk</code>编码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;本篇介绍在windows下的cmd环境执行source *.sql 文件时的报错问题&lt;/p&gt;
+&lt;h3 id=&quot;1-问题现象&quot;&gt;&lt;a href=&quot;#1-问题现象&quot; class=&quot;headerlink&quot; title=&quot;1.问题现象&quot;&gt;&lt;/a&gt;1.问题现象&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2015/05/23/window系统cmd环境导入sql文件报错问题/error.jpg&quot; alt=&quot;error&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python  开发环境搭建</title>
     <link href="http://yoursite.com/2014/05/07/python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://yoursite.com/2014/05/07/python开发环境搭建/</id>

@@ -23,6 +23,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[windows系统cmd环境导入sql文件报错问题]]></title>
+    <url>%2F2015%2F05%2F23%2Fwindow%E7%B3%BB%E7%BB%9Fcmd%E7%8E%AF%E5%A2%83%E5%AF%BC%E5%85%A5sql%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[说明本篇介绍在windows下的cmd环境执行source *.sql 文件时的报错问题 1.问题现象 2.问题原因我们用两个图片来说明。在登录mysql客户端后输入以下命令：1mysql&gt; show variables like &quot;character%&quot; 显示如下：当我们输入set names utf8; 之后，执行source *.sql文件不会报错。此时的字符编码情况如下图：观察上下两幅图可知，是client、connection、results这三个系统变量的字符编码导致了乱码报错问题。看看这3个变量的作用： 信息输入路径：client→connection→server；信息输出路径：server→connection→results。 换句话说，每个路径要经过3次改变字符集编码。以出现乱码的输出为例，server里utf8的数据，传入connection转为gbk，传入results转为gbk，utf-8页面又把results转过来。如果两种字符集不兼容，比如gbk和utf8，转化过程就为不可逆的，破坏性的。所以就转不回来了。 但这里要声明一点，“SET NAMES UTF8”作用只是临时的，MySQL重启后就恢复默认了。 3.在ubuntu中的编码与windows中不同，如下图：因为在这里的client,connection,results 都是utf-8编码，所以在执行source *.sql 文件时不会报错。 注意：在Windows中设置了set names utf8; 之后查询语句会乱码，此时不应设置，中文显示需要gbk编码。]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python 开发环境搭建]]></title>
     <url>%2F2014%2F05%2F07%2Fpython%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[Windows下安装Python和配置环境安装Python首先要去Python的官网下载环境。鼠标移动到Downloads的tab上，在这里可以下载。Python的环境还是很人性化的，没有那么多啰里啰嗦的配置什么的，下载完之后一路next就可以，直到完成。 安装时候需要注意的一点是，需要将add [对应版本号] to PATH: Python IDE在这里为大家推荐pycharm,下载和安装都按照提示操作即可。 注册码这里推荐一个注册码pycharm激活码,（感谢作者）。激活过程如下1.进入页面2.获得注册码，复制注册码3.进入pycharm，找到help下的Register： 4.选择active-code,粘贴注册码,点击OK完成。恭喜你，可以敲代码了！！ 第一个Python程序打开pycharm,新建工程:New Project选择路径和解释器:现在，让我们来写一个最简单的Python程序，新建文件，点击New,选择Python file: 为文件命名: 下面是代码块和执行情况，在python2：中 在python3中：]]></content>
