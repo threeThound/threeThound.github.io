@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-16T15:05:53.461Z</updated>
+  <updated>2018-03-24T13:19:43.484Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ssh 免密登陆</title>
+    <link href="http://yoursite.com/2018/03/24/ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86/"/>
+    <id>http://yoursite.com/2018/03/24/ssh-免密登陆/</id>
+    <published>2018-03-24T12:48:03.000Z</published>
+    <updated>2018-03-24T13:19:43.484Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是主机间免密登陆"><a href="#什么是主机间免密登陆" class="headerlink" title="什么是主机间免密登陆"></a>什么是主机间免密登陆</h3><pre><code>就是我和另外一台主机做任何事情，不需要输入密码认证，非常很方便。
+</code></pre><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ol>
+<li><p>客户机生成ssh私钥和公钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssk-keygen -t rsa # 生成id_rsa及id_rsa.pub两个文件</div><div class="line">#以root用户运行时，默认存储位置 /root/.ssh; 以普通用户运行时，默认存储位置 ~/.ssh</div><div class="line"># 在开启免密登录时，需要对应的添加公钥文件：root--&gt;root  普通-&gt;普通</div></pre></td></tr></table></figure>
+</li>
+<li><p>服务器配置文件 <code>/etc/ssh/sshd_config</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Port 22</div><div class="line">Protocol 2</div><div class="line">HostKey /etc/ssh/ssh_host_rsa_key</div><div class="line">HostKey /etc/ssh/ssh_host_dsa_key</div><div class="line">KeyRegenerationInterval 3600</div><div class="line">ServerKeyBits 768</div><div class="line">SyslogFacility AUTH</div><div class="line">LogLevel INFO</div><div class="line">LoginGraceTime 600</div><div class="line">PermitRootLogin yes    # 允许以root用户登录</div><div class="line">PubkeyAuthentication yes  # 允许公钥认证</div><div class="line">AuthorizedKeysFile      .ssh/authorized_keys  # 公钥认证文件位置</div><div class="line">RhostsAuthentication no</div><div class="line">IgnoreRhosts yes</div><div class="line">HostbasedAuthentication no</div><div class="line">PasswordAuthentication no  # 开启免密</div><div class="line">PermitEmptyPasswords no</div><div class="line">ChallengeResponseAuthentication no</div><div class="line">MaxStartups 20</div><div class="line">Subsystem       sftp /usr/libexec/openssh/sftp-server</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 <strong>服务器端</strong>添加公钥文件，目录与客户机对应，名称改为authorized_keys。即:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#root用户</div><div class="line">客户机的/root/.ssh/id_rsa.pub 里面的内容 复制粘贴到服务器端 /root/.ssh/authorized_keys</div><div class="line"></div><div class="line"># 普通用户</div><div class="line">客户机的~/.ssh/id_rsa.pub 里面的内容 复制粘贴到服务器端 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.退出服务器，重新登录<br><img src="/2018/03/24/ssh-免密登陆/ssh-nopassword.png" alt="ssh-免密登陆/ssh-nopassword.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是主机间免密登陆&quot;&gt;&lt;a href=&quot;#什么是主机间免密登陆&quot; class=&quot;headerlink&quot; title=&quot;什么是主机间免密登陆&quot;&gt;&lt;/a&gt;什么是主机间免密登陆&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;就是我和另外一台主机做任何事情，不需要输入密码认证，非常很方
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Redis 数据类型及操作</title>
     <link href="http://yoursite.com/2017/05/16/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2017/05/16/Redis-数据类型及简单操作/</id>
     <published>2017-05-16T02:08:14.000Z</published>
-    <updated>2017-05-16T15:05:53.461Z</updated>
+    <updated>2018-03-24T13:57:55.831Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Redis-基本数据类型"><a href="#Redis-基本数据类型" class="headerlink" title="Redis 基本数据类型"></a>Redis 基本数据类型</h2><blockquote>
 <ul>
@@ -28,7 +59,7 @@
 <li>不管是 <em>键名</em> 还是<em>值</em> 都是字符串，即Redis存储的一切数据，基于的都是字符串。</li>
 </ul>
 </blockquote>
-<p>Redis 支持5种数据类型：<br>|数据类型    |含义   |<br>| ——-  |  ——|<br>| string     | 字符串 |<br>| hash    | 哈希  |<br>| list |  列表  |<br>| set  | 集合 |<br>| zset | 有序集合 | </p>
+<p>Redis 支持5种数据类型：<br>|数据类型   | 含义|<br>| -|  :-:   |<br>|string | 字符串 |<br>|hash | 哈希 |<br>|list | 列表    |<br>|set|    集合|<br>|zset|   有序集合| </p>
 <a id="more"></a>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h2 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String 字符串"></a>String 字符串</h2><p>string 是redis最基本的类型，一个key对应一个value。<br>string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象。<br>string类型是Redis的最基本的数据类型，一个键最大能存储512MB。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; set name &quot;itcast&quot;</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get name</div><div class="line">&quot;itcast&quot;</div></pre></td></tr></table></figure></p>
 <p>在上面的例子中，<code>set</code>和 <code>get</code> 是Redis string命令， <code>name</code> 和 <code>itcast</code>是存储在Redis的键和字符串值。</p>
@@ -75,7 +106,7 @@
 &lt;li&gt;不管是 &lt;em&gt;键名&lt;/em&gt; 还是&lt;em&gt;值&lt;/em&gt; 都是字符串，即Redis存储的一切数据，基于的都是字符串。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Redis 支持5种数据类型：&lt;br&gt;|数据类型    |含义   |&lt;br&gt;| ——-  |  ——|&lt;br&gt;| string     | 字符串 |&lt;br&gt;| hash    | 哈希  |&lt;br&gt;| list |  列表  |&lt;br&gt;| set  | 集合 |&lt;br&gt;| zset | 有序集合 | &lt;/p&gt;
+&lt;p&gt;Redis 支持5种数据类型：&lt;br&gt;|数据类型   | 含义|&lt;br&gt;| -|  :-:   |&lt;br&gt;|string | 字符串 |&lt;br&gt;|hash | 哈希 |&lt;br&gt;|list | 列表    |&lt;br&gt;|set|    集合|&lt;br&gt;|zset|   有序集合| &lt;/p&gt;
     
     </summary>
     
@@ -91,7 +122,7 @@
     <link href="http://yoursite.com/2016/05/14/CentOS-%E4%B8%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2016/05/14/CentOS-下防火墙相关配置/</id>
     <published>2016-05-14T13:27:27.000Z</published>
-    <updated>2017-05-14T14:14:23.198Z</updated>
+    <updated>2017-05-14T14:14:23.199Z</updated>
     
     <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文介绍在CentOS 7.0中关闭默认防火墙，开启iptables防火墙步骤</p>
 <h3 id="操作系统环境："><a href="#操作系统环境：" class="headerlink" title="操作系统环境："></a>操作系统环境：</h3><p>CentOS Linux release 7.0.1611(Core) 64位<br>CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙步骤。</p>
@@ -178,40 +209,6 @@
     
     
       <category term="开发环境" scheme="http://yoursite.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Welcome to Hexo</title>
-    <link href="http://yoursite.com/2014/01/14/hello-hexo/"/>
-    <id>http://yoursite.com/2014/01/14/hello-hexo/</id>
-    <published>2014-01-14T13:27:27.000Z</published>
-    <updated>2017-05-14T14:25:10.228Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<a id="more"></a>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="introduce" scheme="http://yoursite.com/categories/introduce/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   
