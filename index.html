@@ -327,6 +327,191 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/mysql面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="threeThound">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="三千Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/12/mysql面试题/" itemprop="url">mysql 面试题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T20:48:03+08:00">
+                2018-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/12/mysql面试题/" class="leancloud_visitors" data-flag-title="mysql 面试题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="数据库面试题相关"><a href="#数据库面试题相关" class="headerlink" title="数据库面试题相关"></a>数据库面试题相关</h1><h2 id="数据处理岗位面试题"><a href="#数据处理岗位面试题" class="headerlink" title="数据处理岗位面试题"></a>数据处理岗位面试题</h2><p>1.什么是主键，什么是外键？<br>定义主键和外键，是为了维护关系型数据库的完整性，总结如下：</p>
+<ul>
+<li>主键是能确定一条记录的唯一标识，比如一条记录包含身份证号，姓名，年龄。</li>
+</ul>
+<p><strong>说明</strong><br><em>身份证号是唯一能确定你这个人的，其他都可能重复，所以身份证号是主键。</em></p>
+<ul>
+<li>外键用于另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性。</li>
+</ul>
+<p><strong>示例</strong><br><em>比如，A表中的一个字段，是B表的主键，那他就可以是A表的外键。</em></p>
+<p>2.用一条sql语句查询出方剂中每种药物剂量都大于80的方剂</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HJID</td>
+<td>药物名</td>
+<td>剂量</td>
+</tr>
+<tr>
+<td>1</td>
+<td>桂枝</td>
+<td>81</td>
+</tr>
+<tr>
+<td>1</td>
+<td>甘草</td>
+<td>75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>厚朴</td>
+<td>76</td>
+</tr>
+<tr>
+<td>2</td>
+<td>贝母</td>
+<td>90</td>
+</tr>
+<tr>
+<td>2</td>
+<td>甘草</td>
+<td>81</td>
+</tr>
+<tr>
+<td>3</td>
+<td>桂心</td>
+<td>100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>杏仁</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> HJID,<span class="keyword">sum</span>(剂量 &lt; <span class="number">80</span>) <span class="keyword">as</span> cnt <span class="keyword">from</span> 表名 <span class="keyword">group</span> <span class="keyword">by</span> HJID <span class="keyword">having</span> cnt &lt;= <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>3.有两个表A和B,均有key和value两个字段，如果B的key在A中也有，就把B的value换为A中对应的value值。这道题中的SQL语句怎么写？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> A <span class="keyword">join</span> B <span class="keyword">on</span> A.name=B.name <span class="keyword">set</span> A.<span class="string">`value`</span>=B.<span class="string">`value`</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/24/ssh-免密登陆/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +591,7 @@
       
         
           
-            <h3 id="什么是主机间免密登陆"><a href="#什么是主机间免密登陆" class="headerlink" title="什么是主机间免密登陆"></a>什么是主机间免密登陆</h3><pre><code>就是我和另外一台主机做任何事情，不需要输入密码认证，非常很方便。
+            <h3 id="什么是主机间免密登陆"><a href="#什么是主机间免密登陆" class="headerlink" title="什么是主机间免密登陆"></a>什么是主机间免密登陆</h3><pre><code>就是我和另外一台主机做任何事情，不需要输入密码认证，非常方便。
 </code></pre><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ol>
 <li><p>客户机生成ssh私钥和公钥</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssk-keygen -t rsa # 生成id_rsa及id_rsa.pub两个文件</div><div class="line">#以root用户运行时，默认存储位置 /root/.ssh; 以普通用户运行时，默认存储位置 ~/.ssh</div><div class="line"># 在开启免密登录时，需要对应的添加公钥文件：root--&gt;root  普通-&gt;普通</div></pre></td></tr></table></figure>
@@ -568,7 +753,41 @@
 <li>不管是 <em>键名</em> 还是<em>值</em> 都是字符串，即Redis存储的一切数据，基于的都是字符串。</li>
 </ul>
 </blockquote>
-<p>Redis 支持5种数据类型：<br>|数据类型   | 含义|<br>| -|  :-:   |<br>|string | 字符串 |<br>|hash | 哈希 |<br>|list | 列表    |<br>|set|    集合|<br>|zset|   有序集合| </p>
+<p>Redis 支持5种数据类型：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据类型</td>
+<td>含义</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>哈希</td>
+</tr>
+<tr>
+<td>list</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>set</td>
+<td>集合</td>
+</tr>
+<tr>
+<td>zset</td>
+<td>有序集合</td>
+</tr>
+</tbody>
+</table>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/16/Redis-数据类型及简单操作/#more" rel="contents">
@@ -908,158 +1127,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/05/07/python开发环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="threeThound">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="三千Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/05/07/python开发环境搭建/" itemprop="url">python  开发环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-07T17:47:09+08:00">
-                2014-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2014/05/07/python开发环境搭建/" class="leancloud_visitors" data-flag-title="python  开发环境搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Windows下安装Python和配置环境"><a href="#Windows下安装Python和配置环境" class="headerlink" title="Windows下安装Python和配置环境"></a>Windows下安装Python和配置环境</h2><h3 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h3><p>首先要去<a href="https://www.python.org/">Python的官网</a><br>下载环境。鼠标移动到Downloads的tab上，在这里可以下载。<br><img src="http://opkyi3su9.bkt.clouddn.com/image/Python-dw.jpg" alt="Python下载页面"><br>Python的环境还是很人性化的，没有那么多啰里啰嗦的配置什么的，下载完之后一路next就可以，直到完成。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/05/07/python开发环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1102,7 +1176,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1124,7 +1198,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

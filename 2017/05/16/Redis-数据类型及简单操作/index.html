@@ -116,7 +116,38 @@ Resis 是 key-Value 的数据结构，每条数据都是一个 键值对
 不管是 键名 还是值 都是字符串，即Redis存储的一切数据，基于的都是字符串。
 
 
-Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | 字符串 ||hash | 哈希 ||list | 列表    ||set|    集合||zset|   有序">
+Redis 支持5种数据类型：
+
+
+
+
+
+
+
+
+
+数据类型
+含义
+
+
+string
+字符串
+
+
+hash
+哈希
+
+
+list
+列表
+
+
+set
+集合
+
+
+zset
+有序集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis 数据类型及操作">
 <meta property="og:url" content="http://yoursite.com/2017/05/16/Redis-数据类型及简单操作/index.html">
@@ -127,8 +158,39 @@ Resis 是 key-Value 的数据结构，每条数据都是一个 键值对
 不管是 键名 还是值 都是字符串，即Redis存储的一切数据，基于的都是字符串。
 
 
-Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | 字符串 ||hash | 哈希 ||list | 列表    ||set|    集合||zset|   有序">
-<meta property="og:updated_time" content="2018-03-24T13:57:55.831Z">
+Redis 支持5种数据类型：
+
+
+
+
+
+
+
+
+
+数据类型
+含义
+
+
+string
+字符串
+
+
+hash
+哈希
+
+
+list
+列表
+
+
+set
+集合
+
+
+zset
+有序集合">
+<meta property="og:updated_time" content="2018-04-12T01:45:42.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 数据类型及操作">
 <meta name="twitter:description" content="Redis 基本数据类型
@@ -137,7 +199,38 @@ Resis 是 key-Value 的数据结构，每条数据都是一个 键值对
 不管是 键名 还是值 都是字符串，即Redis存储的一切数据，基于的都是字符串。
 
 
-Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | 字符串 ||hash | 哈希 ||list | 列表    ||set|    集合||zset|   有序">
+Redis 支持5种数据类型：
+
+
+
+
+
+
+
+
+
+数据类型
+含义
+
+
+string
+字符串
+
+
+hash
+哈希
+
+
+list
+列表
+
+
+set
+集合
+
+
+zset
+有序集合">
 
 
 
@@ -447,13 +540,48 @@ Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | �
 <li>不管是 <em>键名</em> 还是<em>值</em> 都是字符串，即Redis存储的一切数据，基于的都是字符串。</li>
 </ul>
 </blockquote>
-<p>Redis 支持5种数据类型：<br>|数据类型   | 含义|<br>| -|  :-:   |<br>|string | 字符串 |<br>|hash | 哈希 |<br>|list | 列表    |<br>|set|    集合|<br>|zset|   有序集合| </p>
+<p>Redis 支持5种数据类型：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据类型</td>
+<td>含义</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>哈希</td>
+</tr>
+<tr>
+<td>list</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>set</td>
+<td>集合</td>
+</tr>
+<tr>
+<td>zset</td>
+<td>有序集合</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
 <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h2 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String 字符串"></a>String 字符串</h2><p>string 是redis最基本的类型，一个key对应一个value。<br>string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象。<br>string类型是Redis的最基本的数据类型，一个键最大能存储512MB。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; set name &quot;itcast&quot;</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get name</div><div class="line">&quot;itcast&quot;</div></pre></td></tr></table></figure></p>
 <p>在上面的例子中，<code>set</code>和 <code>get</code> 是Redis string命令， <code>name</code> 和 <code>itcast</code>是存储在Redis的键和字符串值。</p>
 <h2 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash 哈希"></a>Hash 哈希</h2><p>Redis hash 是一个键值对集合。<br>Redis hash 是一个string类型的 <code>fileld</code> 和 <code>value</code>的映射表，hash特别适用于存储对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt; hset myhash age &quot;18&quot;</div><div class="line">(integer) 1</div><div class="line">127.0.0.1:6379&gt; hget myhash age</div><div class="line">&quot;18&quot;</div><div class="line">127.0.0.1:6379&gt; hmset my_hash username &quot;tom&quot; age 18 gender &quot;男&quot;</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; hgetall my_hash</div><div class="line">username</div><div class="line">tom</div><div class="line">age</div><div class="line">18</div><div class="line">gender</div><div class="line">男</div></pre></td></tr></table></figure></p>
 <p>在上面的例子中，哈希数据表用于存储包含用户基本信息的用户对象。这里 hset, hget, hgetall 是Redis HASHES命令，同时 <code>myhash</code> 、<code>my_hash</code>都是键。</p>
-<h2 id="List-列表"><a href="#List-列表" class="headerlink" title="List 列表"></a>List 列表</h2><p>Redis 列表是简单的字符串列表， 按照插入顺序排序,可以选择添加一个元素的头部（左边）或者尾部（右边）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 先插入的数据在尾部（右边）</div><div class="line">lpush key value [value ...]</div><div class="line"></div><div class="line"># 先插入的数据在头部（列表左边）</div><div class="line">rpush key value [value ...]</div><div class="line"></div><div class="line"># 查看列表数据，并指定区间</div><div class="line">lrange key start stop</div></pre></td></tr></table></figure></p>
+<h2 id="List-列表"><a href="#List-列表" class="headerlink" title="List 列表"></a>List 列表</h2><p>Redis 列表是简单的字符串列表， 按照插入顺序排序,可以选择添加一个元素的头部（左边）或者尾部（右边）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 先插入的数据在尾部（右边）</div><div class="line">lpush key value [value ...]</div><div class="line"></div><div class="line"># 先插入的数据在头部（列表左边）</div><div class="line">rpush key value [value ...]</div><div class="line"></div><div class="line"># 查看列表数据，并指定区间</div><div class="line">lrange key start stop</div></pre></td></tr></table></figure>
 <blockquote>
 <p>mylist1 of lpush (从头部插入数据）</p>
 </blockquote>
@@ -654,7 +782,7 @@ Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | �
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -676,7 +804,7 @@ Redis 支持5种数据类型：|数据类型   | 含义|| -|  :-:   ||string | �
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
